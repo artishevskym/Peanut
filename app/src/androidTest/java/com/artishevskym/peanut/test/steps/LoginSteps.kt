@@ -35,24 +35,27 @@ class LoginSteps {
             .assertEmptyPassword()
     }
 
-    @When("^I input valid email$")
-    fun iInputValidEmail() {
-        loginRobot.inputEmail("test@google.com")
+    @When("^I input email (\\S+)$")
+    fun iInputEmail(email: String) {
+        loginRobot.inputEmail(email)
     }
 
-    @And("^I input invalid password$")
-    fun iInputInvalidPassword() {
-        loginRobot.inputPassword("a")
+    @And("^I input password (.*)$")
+    fun iInputPassword(password: String) {
+        loginRobot.inputPassword(password)
     }
 
-    @And("^I press login button$")
+    @And("^I click login button$")
     fun iPressLoginButton() {
         loginRobot.clickLoginButton()
     }
 
-    @Then("^I should see error on password view$")
-    fun iShouldSeeErrorOnPasswordView() {
-        loginRobot.assertPasswordError()
+    @Then("^I should see error on (\\S+) view$")
+    fun iShouldSeeErrorOnView(viewName: String) {
+        when(viewName) {
+            "email" -> loginRobot.assertEmailError()
+            "password" -> loginRobot.assertPasswordError()
+        }
     }
 
     private fun launchActivity(newState: Lifecycle.State? = null) {
