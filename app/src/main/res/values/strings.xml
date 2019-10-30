@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Peanut</string>
+    <string name="login_password_error">Invalid password!</string>
 </resources>
