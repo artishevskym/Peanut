@@ -31,6 +31,10 @@ class LoginRobot {
         assertError(R.id.passwordInputField, R.string.login_password_error)
     }
 
+    fun assertEmailError() = apply {
+        assertError(R.id.emailInputField, R.string.login_email_error)
+    }
+
     companion object {
         const val EMPTY = ""
     }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Peanut</string>
     <string name="login_password_error">Invalid password!</string>
+    <string name="login_email_error">Invalid email!</string>
 </resources>
