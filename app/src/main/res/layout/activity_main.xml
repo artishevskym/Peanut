@@ -68,7 +68,7 @@
             app:boxBackgroundColor="@android:color/transparent"
             app:hintAnimationEnabled="false"
             app:hintEnabled="false"
-            app:layout_constraintBottom_toTopOf="@id/loginButton"
+            app:layout_constraintBottom_toTopOf="@id/errorText"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/emailInput">
@@ -83,6 +83,21 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Invalid email or password!"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/loginButton"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+
         <Button
             android:id="@+id/loginButton"
             android:layout_width="0dp"
@@ -93,7 +108,7 @@
             app:layout_constraintBottom_toTopOf="@id/signUpText"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
-            app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+            app:layout_constraintTop_toBottomOf="@id/errorText" />
 
         <TextView
             android:id="@+id/signUpText"

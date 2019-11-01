@@ -58,6 +58,14 @@ class LoginSteps {
         }
     }
 
+    @Then("^I should see authorization error (false|true)$")
+    fun iShouldSeeAuthorizationError(visible: Boolean) {
+        when(visible) {
+            true -> loginRobot.assertAuthorizationError()
+            false -> loginRobot.assertNoAuthorizationError()
+        }
+    }
+
     private fun launchActivity(newState: Lifecycle.State? = null) {
         activityScenario = ActivityScenario.launch(MainActivity::class.java)
         newState?.let { activityScenario.moveToState(it) }

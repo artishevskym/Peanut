@@ -2,6 +2,7 @@ package com.artishevskym.peanut
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.util.PatternsCompat.EMAIL_ADDRESS
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,6 +14,15 @@ class MainActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener {
             validateInputFields()
+            validateCredentials()
+        }
+    }
+
+    private fun validateCredentials() {
+        if (emailInputField.error == null && passwordInputField.error == null) {
+            val validCredentials = (USER_EMAIL == emailInputField.text.toString()
+                    && USER_PASSWORD == passwordInputField.text.toString())
+            errorText.visibility = if (validCredentials) View.GONE else View.VISIBLE
         }
     }
 
@@ -35,5 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val MINIMUM_PASSWORD_LENGTH = 5
+        private const val USER_EMAIL = "test@gmail.com"
+        private const val USER_PASSWORD = "kitkat"
     }
 }
