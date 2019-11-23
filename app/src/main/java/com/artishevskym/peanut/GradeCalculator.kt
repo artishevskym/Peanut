@@ -2,16 +2,17 @@ package com.artishevskym.peanut
 
 import kotlin.math.roundToInt
 
-// TODO: when obtained marks are between 60% and 69%, then the grade is D
-// TODO: when obtained marks are between 70% and 79%, then the grade is C
-// TODO: when obtained marks are between 80% and 89%, then the grade is B
-// TODO: when obtained marks are 90% or above, then the grade is A
-
 class GradeCalculator {
+    var totalMarks = 0
+
     fun calculateGrade(obtainedMarks: Int, totalMarks: Int): String {
         val percent = calculatePercent(obtainedMarks, totalMarks)
         return when {
-            percent >= 50 -> "E"
+            percent >= 90 -> "A"
+            percent in 80..89 -> "B"
+            percent in 70..79 -> "C"
+            percent in 60..69 -> "D"
+            percent in 50..59 -> "E"
             else -> "F"
         }
     }
