@@ -15,8 +15,8 @@ class GradeCalculatorTest : BehaviorSpec({
             }
         }
 
-        When("obtained marks are between 60% and 69%") {
-            val grade = calculator.calculateGrade(63, 100)
+        When("obtained marks are between 50% and 59%") {
+            val grade = calculator.calculateGrade(53, 100)
 
             Then("grade is E") {
                 grade.shouldBe("E")
