@@ -11,3 +11,4 @@
 # Project exclude paths
 /app/build/
 /app/build/intermediates/javac/debug/classes/
+/app/.kotlintest/spec_failures
